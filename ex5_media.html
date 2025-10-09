@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My fifth HTML Code</title>
+  </head>
+  <body>
+    <!--video elements: the ideia is put 3 extensions  for the same video for compatibility with a lot of browser-->
+    <video
+      id="MyVideo"
+      width="800"
+      height="450"
+      controls
+      poster="Images/Captura de tela 2025-10-08 222153.png"
+    >
+      <source src="Videos/212404_tiny.mp4" type="video/mp4" />
+      <source src="Videos/236711_tiny.webm" type="video/webm" />
+      <source src="Videos/304330_tiny.ogg" type="video/ogg" />
+      <p>Your browser doesn't support the video element.</p>
+    </video>
+
+    <!--Customized Buttons-->
+    <div>
+      <button onclick="video.play()">Play</button>
+      <button onclick="video.pause()">Pause</button>
+      <button onclick="video.currentTime = 30">Ir para 30s</button>
+      <button onclick="video.volume = 0.5">Volume 50%</button>
+      <button onclick="video.playbackRate = 1.5">Velocidade 1.5x</button>
+    </div>
+
+    <!--Script with events and controls-->
+    <script>
+      const video = document.getElementById('MyVideo');
+
+      //Buttons functions
+      function playVideo() {
+        video.play();
+      }
+
+      function pauseVideo() {
+        video.pause();
+      }
+
+      function goTo30() {
+        video.currentTime = 30;
+      }
+
+      function setVolume() {
+        video.volume = 0.5;
+      }
+
+      function setSpeed() {
+        video.playbackRate = 1.5;
+      }
+
+      //Monitoring events
+      video.addEventListener('loadstart', () => console.log('loading'));
+      video.addEventListener('canplay', () => console.log('Ready to play'));
+      video.addEventListener('ended', () => console.log('Playback ended'));
+    </script>
+
+    <audio controls preload="metadata">
+      <source src="Audios/music.mp3" type="audio/mpeg" />
+      <source src="Audios/music.ogg" type="audio/ogg" />
+      <source src="Audios/music.wav" type="audio/wav" />
+      <p>Your browser doesn't support the audio element.</p>
+    </audio>
+    <p>Credit for the song: Lost In The Night (ft. Pipa Moran)</p>
+
+    <audio id="player" preload="metadata">
+      <source src="Audios/podcast.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="controls">
+      <button onclick="playPause()">▶️/⏸️</button>
+      <input type="range" id="progress" min="0" max="100" value="0" />
+      <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5" />
+    </div>
+
+    <script>
+      const player = document.getElementById('player');
+      const progress = document.getElementById('progress');
+      const volume = document.getElementById('volume');
+
+      // Atualiza progresso conforme o áudio toca
+      player.addEventListener('timeupdate', () => {
+        progress.value = (player.currentTime / player.duration) * 100;
+      });
+
+      // Permite o usuário mudar o tempo
+      progress.addEventListener('input', () => {
+        player.currentTime = (progress.value / 100) * player.duration;
+      });
+
+      // Controle de volume
+      volume.addEventListener('input', () => {
+        player.volume = volume.value;
+      });
+
+      function playPause() {
+        if (player.paused) {
+          player.play();
+        } else {
+          player.pause();
+        }
+      }
+    </script>
+
+    <iframe
+      src="https://www.youtube.com/embed/jErUADjskgc?si=OxEtKcg9i4JtXIe0"
+      width="560"
+      height="315"
+      frameborder="0"
+      allowfullscreen
+    >
+    </iframe>
+
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/jErUADjskgc?si=OxEtKcg9i4JtXIe0"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+
+    <object
+      data="Files/ex5_media.pdf"
+      type="application/pdf"
+      width="800"
+      height="600"
+    >
+      <p>Your browser can't open PDFs files.</p>
+    </object>
+  </body>
+</html>
