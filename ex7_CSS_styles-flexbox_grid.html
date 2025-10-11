@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- Define o tipo de documento como HTML5 -->
+<html lang="pt-BR">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Torna o layout responsivo em dispositivos móveis -->
+    <title>Exemple of Style</title>
+    <!-- Título da aba do navegador -->
+    <style>
+      /* estes estilos são aplicados para todos os textos abaixo no html */
+      h1 {
+        /* este aqui altera o estilo do título 1 */
+        color: #b8b8b8; /* cor do texto */
+        font-size: 3.5rem; /* tamanho da fonte em unidades relativas */
+        font-weight: 500; /* engorda o texto, como se fosse o nível do negrito */
+        text-align: center; /* centraliza o texto */
+        margin-bottom: 1.5rem; /* similar ao espaçamento do Word entre textos */
+      }
+
+      p {
+        /* este aqui altera o estilo do parágrafo */
+        color: #ff0202; /* cor do texto */
+        font-size: 1.1rem; /* tamanho da fonte */
+        line-height: 1.6; /* altura da linha, define o espaçamento vertical entre linhas */
+        margin-bottom: 1rem; /* espaçamento abaixo do parágrafo */
+      }
+
+      article {
+        background-color: #c9ddc9; /* cor de fundo da caixa */
+        padding: 5rem; /* espaçamento interno ou tamanho da caixa */
+        border-radius: 80px; /* raio das bordas da caixa */
+      }
+
+      .destaque {
+        background-color: #e74c3c; /* cor de fundo vermelha */
+        color: white; /* cor do texto branca */
+        padding: 0.5rem 1rem; /* respectivamente bordas superiores/inferiores e laterais */
+      }
+
+      #mainheader {
+        background: linear-gradient(
+          135deg,
+          #0835fc 0%,
+          #764ba2 100%
+        ); /* fundo com gradiente diagonal */
+        min-height: 50vh; /* define a altura mínima como 50% da altura da tela */
+      }
+
+      nav ul li {
+        display: inline-block; /* modo como os elementos são dispostos */
+        margin-right: 5rem; /* espaçamento à direita entre os elementos do nav */
+        position: relative; /* necessário para o efeito de after funcionar */
+      }
+
+      .link-naveg {
+        color: #0835fc; /* cor do link */
+        text-decoration: none; /* remove o sublinhado padrão */
+        transition: color 0.3s ease; /* suaviza a transição de cor ao passar o mouse */
+        position: relative; /* necessário para posicionar o ::after corretamente */
+        padding-bottom: 4px; /* espaço abaixo do texto para acomodar a linha animada */
+      }
+
+      .link-naveg:hover {
+        color: #2980b9; /* cor do link ao passar o mouse */
+      }
+
+      .link-naveg::after {
+        content: ''; /* cria um conteúdo vazio para a linha decorativa */
+        position: absolute; /* posiciona em relação ao elemento pai */
+        bottom: -2px; /* posiciona a linha 2px abaixo do texto */
+        left: 0; /* começa do lado esquerdo */
+        width: 0; /* largura inicial da linha */
+        height: 2px; /* altura da linha */
+        background-color: rgb(0, 38, 255); /* cor da linha */
+        transition: width 0.3s ease; /* animação de crescimento da linha */
+      }
+
+      .link-naveg:hover::after {
+        width: 100%; /* ao passar o mouse, a linha se expande até a largura total do link */
+      }
+
+      .container-flex {
+        display: flex; /*ativa layout flexível*/
+        justify-content: space-between; /*distribui os itens com espaço estre eles*/
+        align-items: center;
+        flex-wrap: wrap; /*permite a quebra de linha quando necessário*/
+        gap: 3.5rem; /*espaçamento entre itens*/
+      }
+
+      .item-flex {
+        flex: 1 1 200px; /* permite que o item cresça, encolha e tenha largura mínima de 300px */
+        background-color: #ffffff; /* cor de fundo branca */
+        padding: 1.5rem; /* espaçamento interno */
+        border-radius: 8px; /* bordas arredondadas */
+        border: 2px dashed #c01ec0; /* borda visível para teste */
+      }
+
+      .main_grid {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(300px, 1fr)
+        ); /* cria colunas flexíveis */
+        grid-gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .grid-item {
+        background-color: #f0f0f0;
+        padding: 1rem;
+        border-radius: 6px;
+        text-align: center;
+        border: 1px solid #ccc;
+      }
+
+      .page_layout {
+        display: grid;
+        grid-template-areas:
+          'header header'
+          'sidebar main'
+          'footer footer';
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100vh;
+        margin-top: 3rem;
+        border: 2px solid #999;
+      }
+
+      .area-header {
+        grid-area: header;
+        background-color: #667eea;
+        padding: 1rem;
+        color: white;
+      }
+
+      .area-siderbar {
+        grid-area: sidebar;
+        background-color: #e0e0e0;
+        padding: 1rem;
+      }
+
+      .area-main {
+        grid-area: main;
+        background-color: #ffffff;
+        padding: 1rem;
+      }
+
+      .area-footer {
+        grid-area: footer;
+        background-color: #764ba2;
+        padding: 1rem;
+        color: white;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="mainheader">
+      <!-- Aqui definiu-se o h1 como elemento mainheader -->
+      <h1>Welcome to the Jungle</h1>
+      <!-- Título principal da página -->
+    </header>
+
+    <nav>
+      <!-- estrutura para seção de navegação para outras partes do site ou links externos -->
+      <ul>
+        <!-- lista de itens de navegação -->
+        <li><a href="#" class="link-naveg">Beginning</a></li>
+        <!-- link com efeito de hover -->
+        <li><a href="#" class="link-naveg">About</a></li>
+        <!-- link com efeito de hover -->
+        <li><a href="#" class="link-naveg">Contact</a></li>
+        <!-- link com efeito de hover -->
+      </ul>
+    </nav>
+
+    <article>
+      <!-- seção de conteúdo principal -->
+      <p>
+        This is a paragraph to demonstrate the application of a style. Please,
+        note the color, the spacing and the font size.
+      </p>
+      <p class="destaque">
+        You can add how many paragraph you want, and every paragraph will have
+        the same style define on the CSS above.
+      </p>
+    </article>
+    <section class="container-flex">
+      <!-- Seção com layout flexível -->
+      <div class="item-flex">
+        <p>Flexible item 1</p>
+      </div>
+      <div class="item-flex">
+        <p>Flexible item 2</p>
+      </div>
+      <div class="item-flex">
+        <p>Flexible item 3</p>
+      </div>
+    </section>
+
+    <section class="main_grid">
+      <!-- Seção com grid responsivo -->
+      <div class="grid-item">Grid item 1</div>
+      <div class="grid-item">Grid item 2</div>
+      <div class="grid-item">Grid item 3</div>
+      <div class="grid-item">Grid item 4</div>
+    </section>
+
+    <section class="page_layout">
+      <div class="area-header">Header</div>
+      <div class="area-siderbar">Sidebar</div>
+      <div class="area-main">Main Content</div>
+      <div class="area-footer">Footer</div>
+    </section>
+  </body>
+</html>
