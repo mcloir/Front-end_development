@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- Define que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Inicia o documento HTML e define o idioma como português do Brasil -->
+  <head>
+    <!-- Cabeçalho do documento, contém metadados e estilos -->
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8, suportando acentuação -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Torna o layout responsivo em dispositivos móveis -->
+    <title>Horizontal Menu</title>
+    <!-- Título da aba do navegador -->
+
+    <style>
+      <!-- Bloco de estilos CSS embutido -- > .menu-horizontal {
+        /* Estiliza o contêiner do menu */
+        background: rgba(
+          255,
+          255,
+          255,
+          0.95
+        ); /* Fundo branco semi-transparente */
+        backdrop-filter: blur(
+          10px
+        ); /* Aplica desfoque ao fundo atrás do menu */
+        position: sticky; /* Fixa o menu no topo ao rolar a página */
+        top: 0; /* Define a posição superior como 0 (grudado no topo) */
+        z-index: 1000; /* Garante que o menu fique acima de outros elementos */
+      }
+
+      .menu-list {
+        /* Estiliza a lista de itens do menu */
+        display: flex; /* Exibe os itens em linha horizontal */
+        justify-content: center; /* Centraliza os itens horizontalmente */
+        list-style: none; /* Remove os marcadores da lista */
+        margin: 0; /* Remove margens padrão */
+        padding: 0; /* Remove preenchimento padrão */
+        height: 60px; /* Define altura do menu */
+      }
+
+      .menu-link {
+        /* Estiliza os links do menu */
+        display: block; /* Faz o link ocupar todo o espaço do item */
+        padding: 1rem 1.5rem; /* Espaçamento interno (vertical e horizontal) */
+        color: #2c3e50; /* Cor do texto */
+        text-decoration: none; /* Remove sublinhado padrão */
+        transition: all 0.3s ease; /* Suaviza transições de estilo */
+      }
+
+      .menu-link:hover {
+        /* Estilo ao passar o mouse sobre o link */
+        color: #3498db; /* Muda a cor do texto para azul */
+        transform: translateY(-2px); /* Move o link levemente para cima */
+      }
+
+      body {
+        /* Estiliza o corpo da página */
+        margin: 0; /* Remove margens padrão */
+        font-family: Arial, sans-serif; /* Define a fonte do texto */
+      }
+
+      main {
+        /* Estiliza a área principal do conteúdo */
+        padding: 2rem; /* Espaçamento interno ao redor do conteúdo */
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Corpo da página, onde o conteúdo visível é inserido -->
+
+    <nav class="menu-horizontal">
+      <!-- Elemento de navegação com classe para estilização -->
+      <ul class="menu-list">
+        <!-- Lista de itens do menu -->
+        <li><a href="#" class="menu-link">Início</a></li>
+        <!-- Item de menu com link -->
+        <li><a href="#" class="menu-link">Sobre</a></li>
+        <li><a href="#" class="menu-link">Serviços</a></li>
+        <li><a href="#" class="menu-link">Contato</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Área principal do conteúdo -->
+      <h1>Bem-vindo ao meu site!</h1>
+      <!-- Título principal -->
+      <p>Este é um exemplo de menu horizontal com CSS moderno.</p>
+      <!-- Texto explicativo -->
+      <p>Role a página para ver o efeito sticky do menu.</p>
+      <!-- Dica de interação -->
+      <div style="height: 1500px"></div>
+      <!-- Espaço extra para permitir rolagem -->
+    </main>
+  </body>
+</html>
+<!-- Fim do documento HTML -->

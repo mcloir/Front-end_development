@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- Define que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma principal da página como português do Brasil -->
+
+  <head>
+    <!-- Cabeçalho da página, onde ficam metadados e estilos -->
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8, permitindo acentuação -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Torna o layout responsivo em dispositivos móveis -->
+    <title>Vertical Menu</title>
+    <!-- Título que aparece na aba do navegador -->
+
+    <style>
+      /* Estilo do menu vertical lateral */
+      .menu-vertical {
+        position: fixed; /* Fixa o menu na tela, mesmo ao rolar */
+        left: 0; /* Alinha o menu à esquerda */
+        top: 0; /* Alinha o menu ao topo */
+        width: 250px; /* Define a largura do menu */
+        height: 100vh; /* Altura total da tela (100% da viewport) */
+        background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+        /* Fundo com gradiente vertical escuro */
+        transform: translateX(
+          -100%
+        ); /* Esconde o menu fora da tela inicialmente */
+        transition: transform 0.3s ease; /* Suaviza a transição de entrada/saída */
+      }
+
+      /* Classe que revela o menu quando adicionada dinamicamente */
+      .menu-vertical.aberto {
+        transform: translateX(0); /* Move o menu para dentro da tela */
+      }
+
+      /* Estilo dos links dentro do menu vertical */
+      .menu-vertical-link {
+        display: flex; /* Exibe os links como elementos flexíveis */
+        align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+        padding: 1rem 6rem; /* Espaçamento interno (topo/baixo e laterais) */
+        color: #ecf0f1; /* Cor clara para o texto */
+        text-decoration: none; /* Remove sublinhado dos links */
+        transition: all 0.3s ease; /* Suaviza efeitos de hover */
+      }
+
+      /* Efeito ao passar o mouse sobre os links */
+      .menu-vertical-link:hover {
+        background-color: rgba(
+          52,
+          152,
+          219,
+          0.1
+        ); /* Fundo azul claro transparente */
+        color: #3498db; /* Muda a cor do texto para azul */
+      }
+
+      /* Estilo geral do corpo da página */
+      body {
+        margin: 0; /* Remove margens padrão */
+        font-family: Arial, sans-serif; /* Define a fonte do texto */
+      }
+
+      /* Estilo da área principal do conteúdo */
+      main {
+        padding: 2rem; /* Espaçamento interno */
+        margin-left: 260px; /* Desloca o conteúdo para não ficar atrás do menu */
+      }
+
+      /* Estilo do botão que abre o menu */
+      .botao-menu {
+        position: fixed; /* Fixa o botão na tela */
+        top: 20px; /* Distância do topo */
+        left: 20px; /* Distância da esquerda */
+        z-index: 1100; /* Garante que o botão fique acima do menu */
+        padding: 0.5rem 1rem; /* Espaçamento interno */
+        background-color: #3498db; /* Cor de fundo azul */
+        color: white; /* Cor do texto branca */
+        border: none; /* Remove borda padrão */
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+        border-radius: 4px; /* Arredonda os cantos do botão */
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Botão que abre ou fecha o menu ao ser clicado -->
+    <button
+      class="botao-menu"
+      onclick="document.querySelector('.menu-vertical').classList.toggle('aberto')"
+    >
+      Menu
+    </button>
+
+    <!-- Menu vertical lateral com links de navegação -->
+    <nav class="menu-vertical">
+      <a href="#" class="menu-vertical-link">Início</a>
+      <!-- Link para a seção "Início" -->
+      <a href="#" class="menu-vertical-link">Sobre</a>
+      <!-- Link para a seção "Sobre" -->
+      <a href="#" class="menu-vertical-link">Serviços</a>
+      <!-- Link para a seção "Serviços" -->
+      <a href="#" class="menu-vertical-link">Contato</a>
+      <!-- Link para a seção "Contato" -->
+    </nav>
+
+    <!-- Conteúdo principal da página -->
+    <main>
+      <h1>Bem-vindo ao meu site!</h1>
+      <!-- Título principal -->
+      <p>Este é um exemplo de menu vertical com CSS moderno.</p>
+      <!-- Texto explicativo (pode ser atualizado para "vertical") -->
+      <p>Role a página para ver o efeito sticky do menu.</p>
+      <!-- Dica de interação -->
+      <div style="height: 1500px"></div>
+      <!-- Espaço extra para permitir rolagem -->
+    </main>
+  </body>
+</html>
