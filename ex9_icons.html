@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- Declara que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8, permitindo acentuação correta -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante que o layout seja responsivo em dispositivos móveis -->
+
+    <title>Campos de Entrada com Ícone</title>
+    <!-- Define o título da aba do navegador -->
+
+    <style>
+      /* Estilos para campos de entrada padrão */
+      .campo-entrada {
+        width: 100%; /* Ocupa toda a largura disponível */
+        padding: 1rem; /* Espaçamento interno confortável */
+        border: 2px solid #e0e0e0; /* Borda cinza clara */
+        border-radius: 8px; /* Cantos arredondados */
+        font-size: 1rem; /* Tamanho da fonte proporcional */
+        transition: all 0.3s ease; /* Suaviza transições de estilo */
+        outline: none; /* Remove o contorno padrão ao focar */
+      }
+
+      .campo-entrada:focus {
+        /* Estilo aplicado quando o campo está em foco */
+        border-color: #3498db; /* Borda azul */
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1); /* Sombra azul clara */
+      }
+
+      .campo-entrada:valid {
+        /* Estilo aplicado quando o campo está válido */
+        border-color: #27ae60; /* Borda verde */
+      }
+
+      .campo-entrada:invalid:not(:placeholder-shown) {
+        /* Estilo aplicado quando o campo está inválido e o usuário já digitou algo */
+        border-color: #e74c3c; /* Borda vermelha */
+      }
+
+      /* Estilos para campo com ícone embutido */
+      .campo-com-icone {
+        position: relative; /* Permite posicionar elementos filhos de forma absoluta */
+      }
+
+      .campo-com-icone input {
+        padding-left: 3rem; /* Espaço à esquerda para acomodar o ícone */
+      }
+
+      .campo-com-icone::before {
+        /* Ícone inserido antes do campo de entrada */
+        content: ''; /* Elemento vazio usado como ícone decorativo */
+        position: absolute; /* Posiciona o ícone dentro do campo */
+        left: 1rem; /* Distância da borda esquerda */
+        top: 50%; /* Centraliza verticalmente */
+        transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+        width: 18px;
+        height: 18px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233498db' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 14c-2.67 0-5.33-1.34-6.93-3.66.03-1.31 2.62-2.04 4.93-2.04s4.9.73 4.93 2.04C17.33 17.66 14.67 19 12 19z'/%3E%3C/svg%3E"); /* Ícone SVG embutido via base64 */
+        background-size: cover; /* Garante que o ícone ocupe todo o espaço */
+        background-repeat: no-repeat; /* Evita repetição da imagem */
+      }
+
+      /* Estilos gerais do formulário */
+      form {
+        max-width: 400px; /* Largura máxima do formulário */
+        margin: 2rem auto; /* Centraliza verticalmente com espaçamento */
+        font-family: Arial, sans-serif; /* Fonte legível e padrão */
+      }
+
+      label {
+        display: block; /* Faz o label ocupar uma linha inteira */
+        margin-bottom: 0.5rem; /* Espaço abaixo do label */
+        font-weight: bold; /* Texto em negrito */
+      }
+
+      /* Estilos do botão */
+      .botao {
+        display: inline-flex; /* Permite alinhamento de ícone e texto */
+        align-items: center; /* Alinha verticalmente os elementos internos */
+        padding: 0.875rem 2rem; /* Espaçamento interno do botão */
+        font-weight: 600; /* Peso da fonte mais forte */
+        border: none; /* Remove borda padrão */
+        border-radius: 8px; /* Cantos arredondados */
+        cursor: pointer; /* Cursor de mão ao passar o mouse */
+        transition: all 0.3s ease; /* Suaviza transições de estilo */
+      }
+
+      .botao-primario {
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        /* Gradiente azul de fundo */
+        color: white; /* Texto branco */
+      }
+
+      .botao-primario:hover {
+        transform: translateY(-2px); /* Efeito de elevação ao passar o mouse */
+        box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4); /* Sombra azul intensa */
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <!-- Campo com ícone -->
+      <div class="campo-com-icone">
+        <label for="email">E-mail</label>
+        <!-- Rótulo do campo de e-mail -->
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="campo-entrada"
+          placeholder="Digite seu e-mail"
+          required
+        />
+      </div>
+
+      <!-- Botão estilizado -->
+      <button type="submit" class="botao botao-primario">Enviar</button>
+      <!-- Botão que envia o formulário com estilo personalizado -->
+    </form>
+  </body>
+</html>

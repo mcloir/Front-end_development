@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- Declara que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8 para suportar acentuação -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante que o layout seja responsivo em dispositivos móveis -->
+
+    <title>Botão com Variáveis CSS</title>
+    <!-- Título da aba do navegador -->
+
+    <style>
+      /* 🔧 Definição de variáveis globais no seletor :root */
+      :root {
+        --cor-primaria: #3498db; /* Azul principal para botões e destaques */
+        --cor-secundaria: #2c3e50; /* Azul escuro para textos ou fundos */
+        --espacamento-pequeno: 0.5rem; /* Espaçamento pequeno (vertical) */
+        --espacamento-medio: 1rem; /* Espaçamento médio (horizontal) */
+        --espacamento-grande: 2rem; /* Espaçamento grande para seções */
+        --border-radius: 8px; /* Raio de borda para cantos arredondados */
+        --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
+      }
+
+      /* 🎨 Estilo do botão usando variáveis CSS */
+      .botao {
+        background-color: var(--cor-primaria); /* Usa a cor primária definida */
+        padding: var(--espacamento-pequeno) var(--espacamento-medio); /* Espaçamento interno vertical e horizontal */
+        border-radius: var(--border-radius); /* Cantos arredondados */
+        box-shadow: var(
+          --sombra-suave
+        ); /* Sombra suave para destacar o botão */
+        color: white; /* Texto branco para contraste */
+        border: none; /* Remove borda padrão */
+        font-size: 1rem; /* Tamanho de fonte padrão */
+        cursor: pointer; /* Cursor de mão ao passar o mouse */
+        transition: background 0.3s ease; /* Suaviza mudança de cor ao interagir */
+      }
+
+      .botao:hover {
+        background-color: var(
+          --cor-secundaria
+        ); /* Muda para cor secundária ao passar o mouse */
+      }
+
+      /* 🧱 Estilo básico para centralizar o conteúdo */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: var(--espacamento-grande);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 🧪 Botão estilizado com variáveis CSS -->
+    <button class="botao">Clique aqui</button>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- Declara que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Codificação UTF-8 para suportar acentuação -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante que o layout seja responsivo em dispositivos móveis -->
+
+    <title>Navegação Responsiva</title>
+    <!-- Título da aba do navegador -->
+
+    <style>
+      /* 🧱 Container principal da página */
+      .container {
+        margin: 0 auto; /* Centraliza horizontalmente */
+        padding: 1rem; /* Espaçamento interno */
+      }
+
+      /* 📱 Mobile First: navegação em coluna por padrão */
+      .navegacao {
+        display: flex; /* Ativa o Flexbox */
+        flex-direction: column; /* Empilha os itens verticalmente */
+        gap: 0.5rem; /* Espaço entre os itens */
+        background-color: #f4f4f4; /* Fundo claro para destaque */
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .navegacao a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: bold;
+      }
+
+      /* 🖥️ A partir de 768px: navegação em linha */
+      @media (min-width: 768px) {
+        .navegacao {
+          flex-direction: row; /* Alinha os itens horizontalmente */
+          justify-content: space-between; /* Distribui os itens com espaço entre eles */
+        }
+      }
+
+      /* 🖥️ A partir de 1024px: container mais largo */
+      @media (min-width: 1024px) {
+        .container {
+          max-width: 1200px; /* Limita a largura máxima do conteúdo */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 🧱 Container que envolve todo o conteúdo -->
+    <div class="container">
+      <!-- 📌 Barra de navegação responsiva -->
+      <nav class="navegacao">
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+      </nav>
+    </div>
+  </body>
+</html>

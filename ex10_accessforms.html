@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- Define que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Codificação UTF-8 para suportar acentuação -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante que o layout seja responsivo em dispositivos móveis -->
+
+    <title>Formulário Moderno com Checkbox</title>
+    <!-- Título da aba do navegador -->
+
+    <style>
+      /* Estilo do contêiner principal do formulário */
+      .formulario-moderno {
+        max-width: 500px; /* Largura máxima do formulário */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        padding: 2.5rem; /* Espaçamento interno */
+        background: white; /* Fundo branco */
+        border-radius: 16px; /* Cantos arredondados */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+      }
+
+      /* Estilo do grupo do checkbox */
+      .checkbox-personalizado {
+        position: relative; /* Permite posicionar elementos filhos de forma absoluta */
+        display: inline-flex; /* Alinha o checkbox e o texto lado a lado */
+        align-items: center; /* Alinha verticalmente os itens */
+        cursor: pointer; /* Cursor de mão ao passar o mouse */
+        margin-top: 1rem; /* Espaço acima do checkbox */
+      }
+
+      /* Esconde o input original do checkbox */
+      .checkbox-personalizado input {
+        position: absolute; /* Remove da estrutura visual */
+        opacity: 0; /* Torna invisível */
+      }
+
+      /* Caixa visual que representa o checkbox */
+      .checkmark {
+        width: 20px; /* Largura da caixa */
+        height: 20px; /* Altura da caixa */
+        border: 2px solid #ddd; /* Borda cinza clara */
+        border-radius: 4px; /* Cantos levemente arredondados */
+        margin-right: 0.75rem; /* Espaço entre a caixa e o texto */
+        transition: all 0.3s ease; /* Suaviza mudanças de estilo */
+      }
+
+      /* Estilo aplicado quando o checkbox está marcado */
+      .checkbox-personalizado input:checked ~ .checkmark {
+        background-color: #3498db; /* Fundo azul */
+        border-color: #3498db; /* Borda azul */
+      }
+
+      /* Estilo do botão de envio */
+      button {
+        margin-top: 2rem; /* Espaço acima do botão */
+        padding: 0.75rem 1.5rem; /* Espaçamento interno */
+        font-size: 1rem; /* Tamanho da fonte */
+        border: none; /* Remove borda padrão */
+        border-radius: 8px; /* Cantos arredondados */
+        background-color: #3498db; /* Fundo azul */
+        color: white; /* Texto branco */
+        cursor: pointer; /* Cursor de mão */
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #2980b9; /* Azul mais escuro ao passar o mouse */
+      }
+
+      /* Estilo básico para rótulos e campos */
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      input[type='text'],
+      input[type='email'] {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        outline: none;
+        transition: border 0.3s ease;
+      }
+
+      input:focus {
+        border-color: #3498db;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Formulário com estilo moderno -->
+    <form class="formulario-moderno">
+      <!-- Campo de nome -->
+      <label for="nome">Nome</label>
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        placeholder="Digite seu nome"
+        required
+      />
+
+      <!-- Campo de e-mail -->
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Digite seu e-mail"
+        required
+      />
+
+      <!-- Checkbox personalizado -->
+      <label class="checkbox-personalizado">
+        <input type="checkbox" name="aceite" required />
+        <span class="checkmark"></span>
+        Aceito os termos de uso
+      </label>
+
+      <!-- Botão de envio -->
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>

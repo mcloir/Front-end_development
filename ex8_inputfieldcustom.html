@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- Declara que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8, permitindo acentuação -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante que o layout seja responsivo em dispositivos móveis -->
+
+    <title>Campos de Entrada</title>
+    <!-- Título da aba do navegador -->
+
+    <style>
+      /* Estilos CSS começam aqui */
+
+      .campo-entrada {
+        width: 100%; /* Ocupa toda a largura disponível */
+        padding: 1rem; /* Espaçamento interno confortável */
+        border: 2px solid #e0e0e0; /* Borda cinza clara padrão */
+        border-radius: 8px; /* Cantos arredondados */
+        font-size: 1rem; /* Tamanho da fonte proporcional */
+        transition: all 0.3s ease; /* Suaviza mudanças de estilo */
+        outline: none; /* Remove o contorno padrão ao focar */
+      }
+
+      .campo-entrada:focus {
+        /* Estilo aplicado quando o campo está em foco */
+        border-color: #3498db; /* Borda azul */
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1); /* Sombra azul clara */
+      }
+
+      .campo-entrada:valid {
+        /* Estilo aplicado quando o campo está válido */
+        border-color: #27ae60; /* Borda verde */
+      }
+
+      .campo-entrada:invalid:not(:placeholder-shown) {
+        /* Estilo aplicado quando o campo está inválido e o usuário já digitou algo */
+        border-color: #e74c3c; /* Borda vermelha */
+      }
+
+      form {
+        max-width: 400px; /* Largura máxima do formulário */
+        margin: 2rem auto; /* Centraliza o formulário verticalmente */
+        font-family: Arial, sans-serif; /* Fonte legível */
+      }
+
+      label {
+        display: block; /* Faz o label ocupar uma linha inteira */
+        margin-bottom: 0.5rem; /* Espaço abaixo do label */
+        font-weight: bold; /* Texto em negrito */
+      }
+
+      button {
+        margin-top: 1rem; /* Espaço acima do botão */
+        padding: 0.75rem 1.5rem; /* Espaçamento interno do botão */
+        font-size: 1rem; /* Tamanho da fonte do botão */
+        border: none; /* Remove borda padrão */
+        border-radius: 6px; /* Cantos arredondados */
+        background-color: #3498db; /* Cor azul de fundo */
+        color: white; /* Texto branco */
+        cursor: pointer; /* Cursor de mão ao passar o mouse */
+      }
+
+      button:hover {
+        background-color: #2980b9; /* Cor azul escura ao passar o mouse */
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <!-- Início do formulário -->
+      <label for="email">E-mail</label>
+      <!-- Rótulo do campo de e-mail -->
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="campo-entrada"
+        placeholder="digite seu E-mail"
+        required
+      />
+      <button type="submit">Enviar</button>
+      <!-- Botão que envia o formulário -->
+    </form>
+  </body>
+</html>

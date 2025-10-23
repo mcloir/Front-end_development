@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Declara que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Codificação UTF-8 para suportar acentuação -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante que o layout seja responsivo em dispositivos móveis -->
+
+    <title>Card com BEM e Variáveis CSS</title>
+    <!-- Título da aba do navegador -->
+
+    <style>
+      /* 🎯 Definição de variáveis globais no :root */
+      :root {
+        --cor-primaria: #3498db; /* Azul principal para destaque */
+        --border-radius: 8px; /* Cantos arredondados padrão */
+        --espacamento-medio: 1rem; /* Espaçamento interno médio */
+        --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
+      }
+
+      /* 📦 Bloco principal: card */
+      .card {
+        background: white; /* Fundo branco */
+        border-radius: var(
+          --border-radius
+        ); /* Cantos arredondados usando variável */
+        box-shadow: var(--sombra-suave); /* Sombra suave para destacar o card */
+        margin: 2rem auto; /* Espaço externo e centralização */
+        max-width: 400px; /* Largura máxima do card */
+      }
+
+      /* 🧩 Elemento: cabeçalho do card */
+      .card__header {
+        padding: var(--espacamento-medio); /* Espaçamento interno */
+        border-bottom: 1px solid #e0e0e0; /* Linha divisória inferior */
+      }
+
+      /* 🏷️ Elemento: título do card */
+      .card__title {
+        font-size: 1.25rem; /* Tamanho de fonte maior */
+        font-weight: 600; /* Peso da fonte mais forte */
+        margin: 0; /* Remove margem padrão */
+      }
+
+      /* 🎨 Modificador: card destacado */
+      .card--destacado {
+        border: 2px solid var(--cor-primaria); /* Borda azul para destaque */
+      }
+
+      /* 🧾 Conteúdo do card */
+      .card__content {
+        padding: var(--espacamento-medio); /* Espaçamento interno */
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        color: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 🧱 Card padrão -->
+    <div class="card">
+      <div class="card__header">
+        <h2 class="card__title">Card Simples</h2>
+      </div>
+      <div class="card__content">
+        Este é um card com estilo básico, usando a estrutura BEM e variáveis
+        CSS.
+      </div>
+    </div>
+
+    <!-- 🌟 Card com modificador de destaque -->
+    <div class="card card--destacado">
+      <div class="card__header">
+        <h2 class="card__title">Card Destacado</h2>
+      </div>
+      <div class="card__content">
+        Este card tem uma borda azul para chamar atenção, graças ao modificador
+        <code>card--destacado</code>.
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Declara que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8 para suportar acentuação -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante que o layout seja responsivo em dispositivos móveis -->
+
+    <title>Exemplo com Animação e Imagem Responsiva</title>
+    <!-- Título da aba do navegador -->
+
+    <style>
+      /* 🎯 Estilo para elementos que serão animados */
+      .elemento-animado {
+        will-change: transform; /* Informa ao navegador que esse elemento será transformado, permitindo otimizações */
+        transform: translateZ(
+          0
+        ); /* Cria uma camada de composição para melhorar a performance de animações */
+      }
+
+      /* 🖼️ Estilo para imagens que se adaptam ao contêiner */
+      .imagem-responsiva {
+        width: 100%; /* A imagem ocupa toda a largura disponível */
+        height: auto; /* Mantém a proporção original da imagem */
+        object-fit: cover; /* Cobre o espaço disponível sem distorcer, cortando excessos se necessário */
+      }
+
+      /* ♿ Preferência de acessibilidade: reduzir movimento */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important; /* Reduz drasticamente a duração das animações */
+          transition-duration: 0.01ms !important; /* Reduz a duração das transições */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 🔄 Elemento com animação simulada -->
+    <div class="elemento-animado" style="transition: transform 1s">
+      Passe o mouse aqui para animar
+    </div>
+
+    <!-- 🖼️ Imagem que se adapta ao tamanho da tela -->
+    <img
+      src="https://www.svgrepo.com/show/533811/donuts-cake.svg"
+      alt="Imagem de exemplo"
+      class="imagem-responsiva"
+    />
+  </body>
+</html>

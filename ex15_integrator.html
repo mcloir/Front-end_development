@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- Declara que o documento está usando HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Codificação UTF-8 para suportar acentuação -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante que o layout seja responsivo em dispositivos móveis -->
+
+    <title>Card de Produto</title>
+    <!-- Título da aba do navegador -->
+
+    <style>
+      /* 🧱 Estilo do card de produto */
+      .produto-card {
+        width: 100%; /* Ocupa toda a largura disponível */
+        max-width: 320px; /* Limita a largura máxima do card */
+        background: white; /* Fundo branco */
+        border-radius: 16px; /* Cantos arredondados */
+        overflow: hidden; /* Esconde conteúdo que ultrapasse os limites */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave */
+        transition: all 0.3s ease; /* Suaviza transformações e sombras */
+      }
+
+      /* 🎯 Efeito ao passar o mouse no card */
+      .produto-card:hover {
+        transform: translateY(-8px); /* Eleva o card levemente */
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+      }
+
+      /* 🖼️ Área da imagem do produto */
+      .produto-imagem {
+        height: 220px; /* Altura fixa da imagem */
+        overflow: hidden; /* Esconde partes da imagem que ultrapassem */
+      }
+
+      /* 📷 Imagem dentro do card */
+      .produto-imagem img {
+        width: 100%; /* Imagem ocupa toda a largura */
+        height: 100%; /* Imagem ocupa toda a altura da área */
+        object-fit: cover; /* Cobre o espaço sem distorcer */
+        transition: transform 0.5s ease; /* Suaviza o efeito de zoom */
+      }
+
+      /* 🔍 Zoom na imagem ao passar o mouse no card */
+      .produto-card:hover .produto-imagem img {
+        transform: scale(1.05); /* Aumenta levemente a imagem */
+      }
+
+      /* 📦 Área de conteúdo do card */
+      .produto-conteudo {
+        padding: 1.5rem; /* Espaçamento interno */
+      }
+
+      /* 🏷️ Título do produto */
+      .produto-titulo {
+        font-size: 1.25rem; /* Tamanho de fonte maior */
+        font-weight: 600; /* Fonte em negrito */
+        color: #2c3e50; /* Azul escuro */
+        margin-bottom: 0.5rem; /* Espaço abaixo do título */
+      }
+
+      /* 💰 Preço do produto */
+      .produto-preco {
+        font-size: 1.5rem; /* Fonte maior para destaque */
+        font-weight: 700; /* Negrito forte */
+        color: #27ae60; /* Verde para indicar valor */
+        margin-bottom: 1rem; /* Espaço abaixo do preço */
+      }
+
+      /* 🛒 Botão de compra */
+      .botao-comprar {
+        width: 100%; /* Ocupa toda a largura do card */
+        background: linear-gradient(
+          135deg,
+          #3498db,
+          #2980b9
+        ); /* Gradiente azul */
+        color: white; /* Texto branco */
+        border: none; /* Remove borda padrão */
+        padding: 0.75rem; /* Espaçamento interno */
+        border-radius: 8px; /* Cantos arredondados */
+        font-weight: 600; /* Texto em negrito */
+        cursor: pointer; /* Cursor de mão ao passar o mouse */
+        transition: all 0.3s ease; /* Suaviza interações */
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 🧪 Card de produto completo -->
+    <div class="produto-card">
+      <!-- Área da imagem -->
+      <div class="produto-imagem">
+        <img
+          src="https://www.svgrepo.com/show/533811/donuts-cake.svg"
+          alt="Imagem do produto"
+        />
+      </div>
+
+      <!-- Conteúdo do card -->
+      <div class="produto-conteudo">
+        <h2 class="produto-titulo">Produto Exemplo</h2>
+        <p class="produto-preco">R$ 149,90</p>
+        <button class="botao-comprar">Comprar agora</button>
+      </div>
+    </div>
+  </body>
+</html>

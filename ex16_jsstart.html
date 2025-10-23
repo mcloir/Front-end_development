@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primeiro exemplo em JavaScript</title>
+    <style>
+      .minhaClasse {
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+
+      .novaClasse {
+        background-color: lightblue;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="minhaDiv">Manipulação de DOM</h1>
+    <p class="minhaClasse">Parágrafo 1</p>
+    <p class="minhaClasse">Parágrafo 2</p>
+    <button id="meuBotao">Clique aqui</button>
+    <div class="meuElemento">Passe o mouse aqui</div>
+
+    <script>
+      //Variáveis e Tipos de Dados
+      let nome = 'Daniel Gomes'; //declara variário com nome
+      const idade = 25; //declara contante com idade
+      let ativo = true; //declara varuável booleana
+
+      let text = 'String'; //tipo string
+      let numero = 42; //tipo número
+      let booleano = true; //tipo booleano
+      let indefinido; //variável sem valor definido
+      let nulo = null; //valor nulo explicito
+
+      //Funções
+      function calcularArea(largura, altura) {
+        //função tradicional para calcular área
+        return largura * altura;
+      }
+
+      const calcularPerimetro = (largura, altura) => {
+        //arrow function para calcular
+        return 2 * (largura + altura);
+      };
+
+      let area = calcularArea(10, 5); //chamada da função calcularArea
+      let perimetro = calcularPerimetro(10, 5); //chamada da função calcularPerimetro
+      console.log(`Área: ${area}, Perímetro: ${perimetro}`); //Exibe o resultado
+
+      //Eventos
+      document.getElementById('meuBotao').addEventListener('click', fuction());
+    </script>
+  </body>
+</html>
