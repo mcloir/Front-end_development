@@ -1,57 +1,131 @@
 <!DOCTYPE html>
+<!-- Define o tipo de documento como HTML5 -->
 <html lang="pt-BR">
+  <!-- Início do documento HTML, com idioma definido como português do Brasil -->
   <head>
+    <!-- Cabeçalho da página, contém metadados e estilos -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Primeiro exemplo em JavaScript</title>
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <title>Exemplo de JavaScript Moderno</title>
+    <!-- Título da aba do navegador -->
     <style>
-      .minhaClasse {
-        padding: 10px;
-        border: 1px solid #ccc;
+      <!-- Bloco de estilos CSS embutido -- > .minhaClasse {
+        /* Estilo para elementos com a classe "minhaClasse" */
+        padding: 10px; /* Espaçamento interno de 10px */
+        border: 1px solid #ccc; /* Borda cinza clara de 1px */
       }
-
       .novaClasse {
-        background-color: lightblue;
-        font-weight: bold;
+        /* Estilo para elementos com a classe "novaClasse" */
+        background-color: lightblue; /* Fundo azul claro */
+        font-weight: bold; /* Texto em negrito */
       }
     </style>
   </head>
   <body>
+    <!-- Corpo da página, onde o conteúdo visível é inserido -->
     <h1 id="minhaDiv">Manipulação de DOM</h1>
+    <!-- Título com ID para manipulação via JavaScript -->
     <p class="minhaClasse">Parágrafo 1</p>
+    <!-- Parágrafo com classe para estilização -->
     <p class="minhaClasse">Parágrafo 2</p>
+    <!-- Outro parágrafo com mesma classe -->
     <button id="meuBotao">Clique aqui</button>
+    <!-- Botão com ID para adicionar evento -->
     <div class="meuElemento">Passe o mouse aqui</div>
+    <!-- Div com classe para evento de mouse -->
 
     <script>
-      //Variáveis e Tipos de Dados
-      let nome = 'Daniel Gomes'; //declara variário com nome
-      const idade = 25; //declara contante com idade
-      let ativo = true; //declara varuável booleana
+      <!-- Bloco de código JavaScript -->
+      // Variáveis e Tipos de Dados
+      let nome = 'João Silva'; // Declara variável com nome
+      const idade = 25; // Declara constante com idade
+      let ativo = true; // Declara variável booleana
 
-      let text = 'String'; //tipo string
-      let numero = 42; //tipo número
-      let booleano = true; //tipo booleano
-      let indefinido; //variável sem valor definido
-      let nulo = null; //valor nulo explicito
+      let texto = 'String'; // Tipo string
+      let numero = 42; // Tipo número
+      let booleano = true; // Tipo booleano
+      let indefinido; // Variável sem valor definido
+      let nulo = null; // Valor nulo explícito
 
-      //Funções
+      // Funções
       function calcularArea(largura, altura) {
-        //função tradicional para calcular área
+        // Função tradicional para calcular área
         return largura * altura;
       }
 
       const calcularPerimetro = (largura, altura) => {
-        //arrow function para calcular
+        // Arrow function para calcular perímetro
         return 2 * (largura + altura);
       };
 
-      let area = calcularArea(10, 5); //chamada da função calcularArea
-      let perimetro = calcularPerimetro(10, 5); //chamada da função calcularPerimetro
-      console.log(`Área: ${area}, Perímetro: ${perimetro}`); //Exibe o resultado
+      let area = calcularArea(10, 5); // Chamada da função calcularArea
+      let perimetro = calcularPerimetro(10, 5); // Chamada da função calcularPerimetro
+      console.log(`Área: ${area}, Perímetro: ${perimetro}`); // Exibe os resultados no console
 
-      //Eventos
-      document.getElementById('meuBotao').addEventListener('click', fuction());
+      // Eventos
+      document
+        .getElementById('meuBotao')
+        .addEventListener('click', function () {
+          alert('Botão clicado!'); // Mostra alerta ao clicar no botão
+        });
+
+      document
+        .querySelector('.meuElemento')
+        .addEventListener('mouseover', () => {
+          console.log('Mouse passou sobre o elemento'); // Loga mensagem ao passar o mouse
+        });
+
+      // Manipulação do DOM
+      let elemento1 = document.getElementById('minhaDiv'); // Seleciona elemento pelo ID
+      let elementos = document.getElementsByClassName('minhaClasse'); // Seleciona todos com a classe
+      let elemento2 = document.querySelector('.minhaClasse'); // Seleciona o primeiro com a classe
+      let todosElementos = document.querySelectorAll('p'); // Seleciona todos os parágrafos
+
+      elemento1.textContent = 'Texto alterado via JavaScript'; // Altera texto do h1
+      elemento2.innerHTML = '<strong>Texto em negrito</strong>'; // Insere HTML no parágrafo
+      elemento2.setAttribute('class', 'novaClasse'); // Altera a classe do elemento
+      elemento2.style.backgroundColor = 'blue'; // Altera a cor de fundo via estilo inline
+
+      // LocalStorage
+      localStorage.setItem('usuario', nome); // Armazena nome no localStorage
+      localStorage.setItem(
+        'configuracoes',
+        JSON.stringify({ tema: 'escuro', idioma: 'pt-BR' })
+      ); // Armazena objeto como string
+
+      let usuario = localStorage.getItem('usuario'); // Recupera valor armazenado
+      let config = JSON.parse(localStorage.getItem('configuracoes')); // Converte string de volta para objeto
+      console.log(`Usuário: ${usuario}, Configurações:`, config); // Exibe dados no console
+
+      // SessionStorage
+      sessionStorage.setItem('dadosTemporarios', 'valor temporário'); // Armazena dado temporário
+      let dados = sessionStorage.getItem('dadosTemporarios'); // Recupera dado
+      console.log(`SessionStorage: ${dados}`); // Exibe no console
+
+      // Cookies
+      document.cookie =
+        'usuario=João Silva; expires=Thu, 18 Dec 2024 12:00:00 UTC; path=/'; // Cria cookie com validade
+
+      function getCookie(nome) {
+        // Função para ler cookies
+        let name = nome + '=';
+        let decodedCookie = decodeURIComponent(document.cookie); // Decodifica os cookies
+        let ca = decodedCookie.split(';'); // Separa os cookies
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            // Remove espaços
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            // Verifica se é o cookie desejado
+            return c.substring(name.length, c.length); // Retorna valor do cookie
+          }
+        }
+        return ''; // Retorna vazio se não encontrar
+      }
+
+      console.log('Cookie usuário:', getCookie('usuario')); // Exibe valor do cookie no console
     </script>
   </body>
 </html>
